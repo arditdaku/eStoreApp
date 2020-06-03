@@ -3,11 +3,17 @@ const bookshelf = require('bookshelf')(knex);
 
 const Order = require("./order");
 
-const User = bookshelf.Model.extend({
-    tableName: 'user',
-    orders() {
-        return this.hasMany(Order)
-      }
+var User = bookshelf.Model.extend({
+  tableName: 'user',
+  orders() {
+    return this.hasMany(Order)
+  }
+});
+var Users = bookshelf.Collection.extend({
+  module: User
 });
 
-module.exports = { User: User };
+module.exports = {
+  User: User,
+  Users: Users
+};
