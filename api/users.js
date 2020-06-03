@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
 
 // Fetch users
 router.get("/allusers", async (req, res) => {
-  var users = await new User().fetchAll();
+  var users = await new Model.User().fetchAll();
   res.json(users);
   // var users = await Users.forge().fetch();
   // res.send(users.toJSON());
